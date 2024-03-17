@@ -12,9 +12,13 @@ class Deck {
   load() {
     for (let i = 1; i <= 10; i++) {
       for (let j = 0; j < 4; j++) {
-        this.cards.push(new Card(i));
+        this.add(new Card(i));
       }
     }
+  }
+
+  add(card: Card) {
+    this.cards.push(card);
   }
 
   /**
