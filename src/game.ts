@@ -39,12 +39,12 @@ class Game {
     if (card1.value > card2.value) {
       this.player1.addToDiscard([card1, card2]);
       this.player1.addToDiscardPreviouslyTied(this.tiedCards);
-      this.tiedCards = []; // flush tied cards
+      this.flushTiedCards();
       this.outputPrinter.addRoundWinnerText(this.player1.getId());
     } else if (card1.value < card2.value) {
       this.player2.addToDiscard([card1, card2]);
       this.player2.addToDiscardPreviouslyTied(this.tiedCards);
-      this.tiedCards = []; // flush tied cards
+      this.flushTiedCards();
       this.outputPrinter.addRoundWinnerText(this.player2.getId());
     } else {
       this.addToTiedCards(card1, card2);
@@ -78,6 +78,10 @@ class Game {
 
   printOutput() {
     this.outputPrinter.print();
+  }
+
+  flushTiedCards() {
+    this.tiedCards = [];
   }
 }
 
