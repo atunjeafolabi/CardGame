@@ -18,7 +18,7 @@ class Game {
     this.outputPrinter = outputPrinter;
   }
 
-  playTurn() {
+  private playTurn() {
     const card1 = this.player1.drawCard();
     const card2 = this.player2.drawCard();
 
