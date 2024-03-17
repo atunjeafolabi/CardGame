@@ -32,9 +32,6 @@ class Deck {
     }
   }
 
-  /**
-   * Get the first 20 elements in cards
-   */
   deal(): Card[] {
     return this.cards.splice(0, 20);
   }
