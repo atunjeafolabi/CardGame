@@ -3,14 +3,13 @@ import Player from "./player";
 import OutputPrinter from "./OutputPrinter";
 
 class Game {
-  player1: Player;
-  player2: Player;
-  winner!: Player;
-
-  round = 1;
-  tieRound = 0;
-  tiedCards: Card[][];
-  outputPrinter: OutputPrinter;
+  private round = 1;
+  private tieRound = 0;
+  private player1: Player;
+  private player2: Player;
+  private winner!: Player;
+  private tiedCards: Card[][];
+  private outputPrinter: OutputPrinter;
 
   constructor(player1: Player, player2: Player, outputPrinter: OutputPrinter) {
     this.tiedCards = [];
@@ -53,7 +52,7 @@ class Game {
     }
   }
 
-  addToTiedCards(card1: Card, card2: Card) {
+  private addToTiedCards(card1: Card, card2: Card) {
     this.tiedCards[this.tieRound] = [card1, card2];
   }
 
@@ -80,7 +79,7 @@ class Game {
     this.outputPrinter.print();
   }
 
-  flushTiedCards() {
+  private flushTiedCards() {
     this.tiedCards = [];
   }
 }
