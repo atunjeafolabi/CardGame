@@ -1,7 +1,7 @@
 import Card from "./card";
 
 class Player {
-  id: number;
+  private id: number;
   drawPile: Card[];
   discardPile: Card[];
 
@@ -12,18 +12,18 @@ class Player {
   }
 
   drawCard(): Card {
-    if (this.drawPile.length === 0) {
+    if (this.sizeOfDrawPile() === 0) {
       this.shuffleDiscardPile();
     }
     return this.drawPile.pop()!;
   }
 
   getCurrentCardValue(): Card {
-    if (this.drawPile.length === 0) {
+    if (this.sizeOfDrawPile() === 0) {
       this.shuffleDiscardPile();
     }
 
-    return this.drawPile[this.drawPile.length - 1];
+    return this.drawPile[this.sizeOfDrawPile() - 1];
   }
 
   shuffleDiscardPile(): void {
@@ -35,10 +35,11 @@ class Player {
   }
 
   /**
-   * Randomizes elements in cards using the Fischer-Yates algorithm
+   * Randomizes elements in cards
+   * using the Fischer-Yates algorithm
    */
-  shuffle() {
-    for (let i = this.drawPile.length - 1; i > 0; i--) {
+  private shuffle() {
+    for (let i = this.sizeOfDrawPile() - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [this.drawPile[i], this.drawPile[j]] = [
         this.drawPile[j],
@@ -58,7 +59,15 @@ class Player {
   }
 
   hasCards(): boolean {
-    return this.drawPile.length > 0 || this.discardPile.length > 0;
+    return this.sizeOfDrawPile() > 0 || this.sizeOfDiscardPile() > 0;
+  }
+
+  private sizeOfDrawPile() {
+    return this.drawPile.length;
+  }
+
+  private sizeOfDiscardPile() {
+    return this.discardPile.length;
   }
 
   getId() {
