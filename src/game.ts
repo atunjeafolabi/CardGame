@@ -27,12 +27,12 @@ class Game {
 
     this.outputPrinter.addPlayerLabel(
       this.player1.getId(),
-      this.player1.drawPile.length,
+      this.player1.sizeOfDrawPile(),
       card1.value
     );
     this.outputPrinter.addPlayerLabel(
       this.player2.getId(),
-      this.player2.drawPile.length,
+      this.player2.sizeOfDrawPile(),
       card2.value
     );
 

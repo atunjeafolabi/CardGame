@@ -2,7 +2,7 @@ import Card from "./card";
 
 class Player {
   private id: number;
-  drawPile: Card[];
+  private drawPile: Card[];
   private discardPile: Card[];
 
   constructor(id: number, drawPile: Card[]) {
@@ -62,11 +62,11 @@ class Player {
     return this.sizeOfDrawPile() > 0 || this.sizeOfDiscardPile() > 0;
   }
 
-  private sizeOfDrawPile() {
+  sizeOfDrawPile() {
     return this.drawPile.length;
   }
 
-  private sizeOfDiscardPile() {
+  sizeOfDiscardPile() {
     return this.discardPile.length;
   }
 
