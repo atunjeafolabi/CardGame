@@ -3,7 +3,7 @@ import Card from "./card";
 class Player {
   private id: number;
   drawPile: Card[];
-  discardPile: Card[];
+  private discardPile: Card[];
 
   constructor(id: number, drawPile: Card[]) {
     this.id = id;
