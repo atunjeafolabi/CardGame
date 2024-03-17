@@ -27,7 +27,7 @@ class Player {
   }
 
   shuffleDiscardPile(): void {
-    if (this.discardPile.length > 0) {
+    if (this.sizeOfDiscardPile() > 0) {
       this.drawPile = this.discardPile;
       this.shuffle();
       this.discardPile = [];
