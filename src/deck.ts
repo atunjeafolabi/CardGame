@@ -18,10 +18,11 @@ class Deck {
   }
 
   /**
-   * Randomizes elements in cards using the Fischer-Yates algorithm
+   * Randomizes elements in cards
+   * using the Fischer-Yates algorithm
    */
   shuffle(): void {
-    for (let i = this.cards.length - 1; i > 0; i--) {
+    for (let i = this.size() - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
     }
@@ -32,6 +33,10 @@ class Deck {
    */
   deal(): Card[] {
     return this.cards.splice(0, 20);
+  }
+
+  size() {
+    return this.cards.length;
   }
 }
 
