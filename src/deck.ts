@@ -17,6 +17,10 @@ class Deck {
     }
   }
 
+  getCards() {
+    return this.cards;
+  }
+
   add(card: Card) {
     this.cards.push(card);
   }

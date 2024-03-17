@@ -73,6 +73,22 @@ class Player {
   getId() {
     return this.id;
   }
+
+  setDrawPile(cards: Card[]) {
+    this.drawPile = cards;
+  }
+
+  getDrawPile() {
+    return this.drawPile;
+  }
+
+  setDiscardPile(cards: Card[]) {
+    this.discardPile = cards;
+  }
+
+  getDiscardPile() {
+    return this.discardPile;
+  }
 }
 
 export default Player;

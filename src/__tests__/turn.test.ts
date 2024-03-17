@@ -29,6 +29,6 @@ describe("comparing cards", () => {
   const winner: Player = game.getWinner();
 
   test("When comparing two cards of the same value, the winner of the next round should win 4 cards", () => {
-    expect(winner.discardPile.length).toBe(totalCards);
+    expect(winner.sizeOfDiscardPile()).toBe(totalCards);
   });
 });

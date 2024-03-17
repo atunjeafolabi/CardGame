@@ -8,10 +8,10 @@ const shuffledDeck = deck.shuffle();
 
 describe("deck", () => {
   test("cards in a deck should be 40", () => {
-    expect(deck.cards).toHaveLength(40);
+    expect(deck.getCards()).toHaveLength(40);
   });
 
   test("shuffled decks should not be equal", () => {
-    expect(deck.cards).not.toEqual(shuffledDeck);
+    expect(deck.getCards()).not.toEqual(shuffledDeck);
   });
 });
