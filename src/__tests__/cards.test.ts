@@ -3,7 +3,8 @@ import { describe, expect, test } from "vitest";
 import Player from "../player";
 import Card from "../card";
 
-const player1 = new Player(1, []);
+const emptyDrawPile = [];
+const player1 = new Player(1, emptyDrawPile);
 
 player1.setDiscardPile([
   new Card(1),
