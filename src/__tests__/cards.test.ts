@@ -13,8 +13,6 @@ player1.setDiscardPile([
   new Card(5),
 ]);
 
-let discardedCards = player1.getDiscardPile();
-
 describe("a player with an empty draw pile tries to draw a card", () => {
   player1.drawCard();
 
@@ -27,6 +25,6 @@ describe("a player with an empty draw pile tries to draw a card", () => {
   });
 
   test("draw pile should been shuffled or not equal to discard pile", () => {
-    expect(player1.getDrawPile()).not.toEqual(discardedCards.pop());
+    expect(player1.getDrawPile()).not.toEqual(player1.getDiscardPile());
   });
 });
