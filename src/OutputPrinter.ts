@@ -1,23 +1,27 @@
 class OutputPrinter {
   output: string = "";
 
-  addRoundText(round: number) {
+  writeRoundText(round: number) {
     this.output = this.output + `Round ${round}\n`;
   }
 
-  addPlayerLabel(playerId: number, cardsRemaining: number, cardValue: number) {
+  writePlayerLabel(
+    playerId: number,
+    cardsRemaining: number,
+    cardValue: number
+  ) {
     this.output += `Player ${playerId} (${cardsRemaining} cards): ${cardValue}\n`;
   }
 
-  addRoundWinnerText(id: number) {
+  writeRoundWinnerText(id: number) {
     this.output += `Player ${id} wins this round.\n\n`;
   }
 
-  addWinnerText(id: number) {
+  writeWinnerText(id: number) {
     this.output += `Player ${id} wins the game!\n\n`;
   }
 
-  addNoWinnerText() {
+  writeNoWinnerText() {
     this.output += "No winner in this round\n\n";
   }
 
