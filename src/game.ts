@@ -1,5 +1,5 @@
-import Card from "./card";
-import Player from "./player";
+import Card from "./Card";
+import Player from "./Player";
 import OutputPrinter from "./OutputPrinter";
 
 class Game {

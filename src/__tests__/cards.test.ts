@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
 
-import Player from "../player";
-import Card from "../card";
+import Player from "../Player";
+import Card from "../Card";
 
 const emptyDrawPile = [];
 const player1 = new Player(1, emptyDrawPile);

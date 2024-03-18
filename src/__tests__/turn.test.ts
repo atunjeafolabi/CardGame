@@ -1,8 +1,8 @@
 import { describe, expect, test } from "vitest";
 
-import Player from "../player";
-import Card from "../card";
-import Game from "../game";
+import Player from "../Player";
+import Card from "../Card";
+import Game from "../Game";
 import OutputPrinter from "../OutputPrinter";
 
 describe("comparing cards", () => {

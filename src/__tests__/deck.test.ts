@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import Deck from "../deck";
+import Deck from "../Deck";
 
 const deck = new Deck();
 

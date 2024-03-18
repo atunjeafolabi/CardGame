@@ -1,6 +1,6 @@
-import Game from "./game";
-import Deck from "./deck";
-import Player from "./player";
+import Game from "./Game";
+import Deck from "./Deck";
+import Player from "./Player";
 import OutputFormatter from "./OutputPrinter";
 
 // Distribute cards to players
