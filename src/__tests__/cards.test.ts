@@ -6,7 +6,7 @@ import Card from "../card";
 const emptyDrawPile = [];
 const player1 = new Player(1, emptyDrawPile);
 
-player1.setDiscardPile([
+player1.addToDiscardPile([
   new Card(1),
   new Card(2),
   new Card(3),

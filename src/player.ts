@@ -68,13 +68,13 @@ class Player {
     }
   }
 
-  addToDiscard(cards: Card[]) {
+  addToDiscardPile(cards: Card[]) {
     this.discardPile.push(...cards);
   }
 
   addToDiscardPreviouslyTied(tiedCards: Card[][]) {
     tiedCards.forEach((tiedCardPair) => {
-      this.addToDiscard(tiedCardPair);
+      this.addToDiscardPile(tiedCardPair);
     });
   }
 
@@ -100,10 +100,6 @@ class Player {
 
   getDrawPile() {
     return this.drawPile;
-  }
-
-  setDiscardPile(cards: Card[]) {
-    this.discardPile = cards;
   }
 
   getDiscardPile() {

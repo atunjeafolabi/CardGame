@@ -36,12 +36,12 @@ class Game {
     );
 
     if (card1.value > card2.value) {
-      this.player1.addToDiscard([card1, card2]);
+      this.player1.addToDiscardPile([card1, card2]);
       this.player1.addToDiscardPreviouslyTied(this.tiedCards);
       this.flushTiedCards();
       this.outputPrinter.writeRoundWinnerText(this.player1.getId());
     } else if (card1.value < card2.value) {
-      this.player2.addToDiscard([card1, card2]);
+      this.player2.addToDiscardPile([card1, card2]);
       this.player2.addToDiscardPreviouslyTied(this.tiedCards);
       this.flushTiedCards();
       this.outputPrinter.writeRoundWinnerText(this.player2.getId());
