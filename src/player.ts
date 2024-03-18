@@ -35,7 +35,7 @@ class Player {
   }
 
   /**
-   * Randomizes elements in cards
+   * Randomizes elements in draw pile
    * using the Fischer-Yates algorithm
    */
   private shuffle() {
