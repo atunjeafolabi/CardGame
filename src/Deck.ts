@@ -9,6 +9,9 @@ class Deck {
     this.shuffle();
   }
 
+  /**
+   * Load deck with 40 cards
+   */
   private load() {
     for (let i = 1; i <= 10; i++) {
       for (let j = 0; j < 4; j++) {
