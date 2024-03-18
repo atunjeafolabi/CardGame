@@ -59,7 +59,7 @@ describe("when comparing 4 cards with 1 tie occurence", () => {
 
   const winner: Player = game.getWinner();
 
-  test("the winner should win all 4 cards", () => {
+  test("the winner after tie should win all 4 cards", () => {
     expect(winner.sizeOfDiscardPile()).toBe(totalCards);
   });
 });
@@ -74,7 +74,7 @@ describe("when comparing cards with more than one tie occurence", () => {
 
   const winner: Player = game.getWinner();
 
-  test("the winner should win all cards", () => {
+  test("the winner should also win all tied cards", () => {
     expect(winner.sizeOfDiscardPile()).toBe(totalCards);
   });
 });
