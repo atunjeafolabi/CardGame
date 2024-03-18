@@ -5,46 +5,50 @@ import OutputPrinter from "./OutputPrinter";
 class Game {
   private round = 1;
   private tieRound = 0;
-  private player1: Player;
-  private player2: Player;
   private winner!: Player;
   private tiedCards: Card[][];
+  private firstPlayer: Player;
+  private secondPlayer: Player;
   private outputPrinter: OutputPrinter;
 
-  constructor(player1: Player, player2: Player, outputPrinter: OutputPrinter) {
+  constructor(
+    firstPlayer: Player,
+    secondPlayer: Player,
+    outputPrinter: OutputPrinter
+  ) {
     this.tiedCards = [];
-    this.player1 = player1;
-    this.player2 = player2;
+    this.firstPlayer = firstPlayer;
+    this.secondPlayer = secondPlayer;
     this.outputPrinter = outputPrinter;
   }
 
   private playTurn() {
-    const card1 = this.player1.drawCard();
-    const card2 = this.player2.drawCard();
+    const card1 = this.firstPlayer.drawCard();
+    const card2 = this.secondPlayer.drawCard();
 
     this.outputPrinter.writeRoundText(this.round);
 
     this.outputPrinter.writePlayerLabel(
-      this.player1.getId(),
-      this.player1.sizeOfDrawPile(),
+      this.firstPlayer.getId(),
+      this.firstPlayer.sizeOfDrawPile(),
       card1.value
     );
     this.outputPrinter.writePlayerLabel(
-      this.player2.getId(),
-      this.player2.sizeOfDrawPile(),
+      this.secondPlayer.getId(),
+      this.secondPlayer.sizeOfDrawPile(),
       card2.value
     );
 
     if (card1.value > card2.value) {
-      this.player1.addToDiscardPile([card1, card2]);
-      this.player1.addToDiscardPreviouslyTied(this.tiedCards);
+      this.firstPlayer.addToDiscardPile([card1, card2]);
+      this.firstPlayer.addToDiscardPreviouslyTied(this.tiedCards);
       this.flushTiedCards();
-      this.outputPrinter.writeRoundWinnerText(this.player1.getId());
+      this.outputPrinter.writeRoundWinnerText(this.firstPlayer.getId());
     } else if (card1.value < card2.value) {
-      this.player2.addToDiscardPile([card1, card2]);
-      this.player2.addToDiscardPreviouslyTied(this.tiedCards);
+      this.secondPlayer.addToDiscardPile([card1, card2]);
+      this.secondPlayer.addToDiscardPreviouslyTied(this.tiedCards);
       this.flushTiedCards();
-      this.outputPrinter.writeRoundWinnerText(this.player2.getId());
+      this.outputPrinter.writeRoundWinnerText(this.secondPlayer.getId());
     } else {
       this.addToTiedCards(card1, card2);
       this.outputPrinter.writeNoWinnerText();
@@ -57,17 +61,17 @@ class Game {
   }
 
   play() {
-    while (this.player1.hasCards() && this.player2.hasCards()) {
+    while (this.firstPlayer.hasCards() && this.secondPlayer.hasCards()) {
       this.playTurn();
       this.round++;
     }
 
-    if (this.player1.hasCards() && !this.player2.hasCards()) {
-      this.winner = this.player1;
-      this.outputPrinter.writeWinnerText(this.player1.getId());
+    if (this.firstPlayer.hasCards() && !this.secondPlayer.hasCards()) {
+      this.winner = this.firstPlayer;
+      this.outputPrinter.writeWinnerText(this.firstPlayer.getId());
     } else {
-      this.winner = this.player2;
-      this.outputPrinter.writeWinnerText(this.player2.getId());
+      this.winner = this.secondPlayer;
+      this.outputPrinter.writeWinnerText(this.secondPlayer.getId());
     }
   }
 

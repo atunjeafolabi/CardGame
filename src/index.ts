@@ -5,12 +5,12 @@ import OutputFormatter from "./OutputPrinter";
 
 // Distribute cards to players
 const deck = new Deck();
-const player1DrawPile = deck.deal();
-const player2DrawPile = deck.deal();
-const player1 = new Player(1, player1DrawPile);
-const player2 = new Player(2, player2DrawPile);
+const firstPlayerDrawPile = deck.deal();
+const secondPlayerDrawPile = deck.deal();
+const firstPlayer = new Player(1, firstPlayerDrawPile);
+const secondPlayer = new Player(2, secondPlayerDrawPile);
 
 //Game start
-const game = new Game(player1, player2, new OutputFormatter());
+const game = new Game(firstPlayer, secondPlayer, new OutputFormatter());
 game.play();
 game.printOutput();
