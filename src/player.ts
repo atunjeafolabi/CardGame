@@ -12,38 +12,58 @@ class Player {
   }
 
   drawCard(): Card {
-    if (this.sizeOfDrawPile() === 0) {
-      this.shuffleDiscardPile();
+    if (this.isEmptyDrawPile()) {
+      this.loadDrawPile();
     }
     return this.drawPile.pop()!;
   }
 
+  private isEmptyDrawPile() {
+    return this.sizeOfDrawPile() === 0;
+  }
+
   getCurrentCardValue(): Card {
     if (this.sizeOfDrawPile() === 0) {
-      this.shuffleDiscardPile();
+      this.loadDrawPile();
     }
 
     return this.drawPile[this.sizeOfDrawPile() - 1];
   }
 
-  shuffleDiscardPile(): void {
-    if (this.sizeOfDiscardPile() > 0) {
-      this.drawPile = this.discardPile;
-      this.shuffle();
-      this.discardPile = [];
+  loadDrawPile(): void {
+    if (!this.isEmptyDiscardPile()) {
+      this.shuffleDiscardPile();
+      this.copyDiscardPileToDrawPile();
+      this.flushDiscardPile();
     }
   }
 
+  private flushDiscardPile() {
+    this.discardPile = [];
+  }
+
+  private copyDiscardPileToDrawPile() {
+    this.drawPile = this.discardPile;
+  }
+
+  private isEmptyDiscardPile() {
+    return this.sizeOfDiscardPile() === 0;
+  }
+
   /**
-   * Randomizes elements in draw pile
+   * Randomizes elements in discard pile
    * using the Fischer-Yates algorithm
    */
-  private shuffle() {
-    for (let i = this.sizeOfDrawPile() - 1; i > 0; i--) {
+  private shuffleDiscardPile() {
+    if (this.isEmptyDiscardPile()) {
+      return;
+    }
+
+    for (let i = this.sizeOfDiscardPile() - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [this.drawPile[i], this.drawPile[j]] = [
-        this.drawPile[j],
-        this.drawPile[i],
+      [this.discardPile[i], this.discardPile[j]] = [
+        this.discardPile[j],
+        this.discardPile[i],
       ];
     }
   }
