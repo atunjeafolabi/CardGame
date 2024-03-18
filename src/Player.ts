@@ -94,8 +94,8 @@ class Player {
     return this.id;
   }
 
-  setDrawPile(cards: Card[]) {
-    this.drawPile = cards;
+  addToDrawPile(cards: Card[]) {
+    this.drawPile.push(...cards);
   }
 
   getDrawPile() {
