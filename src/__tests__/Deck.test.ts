@@ -3,7 +3,6 @@ import { describe, expect, test } from "vitest";
 import Deck from "../Deck";
 
 const deck = new Deck();
-
 const shuffledDeck = deck.shuffle();
 
 describe("deck", () => {

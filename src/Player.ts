@@ -22,14 +22,6 @@ class Player {
     return this.sizeOfDrawPile() === 0;
   }
 
-  getCurrentCardValue(): Card {
-    if (this.sizeOfDrawPile() === 0) {
-      this.loadDrawPile();
-    }
-
-    return this.drawPile[this.sizeOfDrawPile() - 1];
-  }
-
   loadDrawPile(): void {
     if (!this.isEmptyDiscardPile()) {
       this.shuffleDiscardPile();
