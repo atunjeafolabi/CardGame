@@ -3,7 +3,7 @@ import { describe, expect, test } from "vitest";
 import Card from "../Card";
 import Game from "../Game";
 import Player from "../Player";
-import OutputPrinter from "../OutputPrinter";
+import OutputPrinter from "../Output";
 
 describe("a player with an empty draw pile tries to draw a card", () => {
   const emptyDrawPile = [];

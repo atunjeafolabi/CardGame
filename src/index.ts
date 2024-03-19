@@ -1,7 +1,7 @@
 import Game from "./Game";
 import Deck from "./Deck";
 import Player from "./Player";
-import OutputFormatter from "./OutputPrinter";
+import OutputFormatter from "./Output";
 
 // Distribute cards to players
 const deck = new Deck();
