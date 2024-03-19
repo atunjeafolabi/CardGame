@@ -1,4 +1,4 @@
-class OutputPrinter {
+class Output {
   output: string = "";
 
   writeRoundText(round: number) {
@@ -34,4 +34,4 @@ class OutputPrinter {
   }
 }
 
-export default OutputPrinter;
+export default Output;
