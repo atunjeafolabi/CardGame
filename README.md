@@ -12,7 +12,7 @@ This is a solution to the card game assessment covered with the specified tests.
 ## Setup
 
 - Install Node
-- Download the project folder
+- Clone the project `git clone git@github.com:atunjeafolabi/CardGame.git`
 - `cd` in to the root of the project
 - Run `npm install` to install dependencies
 
